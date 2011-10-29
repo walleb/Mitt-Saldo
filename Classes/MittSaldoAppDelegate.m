@@ -12,14 +12,20 @@
 #import "RootViewController.h"
 #import "KeyLockViewController.h"
 #import "MyMutableURLRequest.h"
+#import "ConfiguredBank.h"
+#import "BankAccount.h"
+
+@interface MittSaldoAppDelegate ()
+- (void)runVersionUpgrades;
+@end
+
 @implementation MittSaldoAppDelegate
 
 @synthesize window;
 @synthesize navigationController;
 @synthesize rootView, tabController, settingsView, webView;
 
-#pragma mark -
-#pragma mark Application lifecycle
+#pragma mark - Application lifecycle
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
@@ -103,6 +109,8 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
+    [self runVersionUpgrades];
+    
 	NSDate *backgroundDate = [MittSaldoSettings getApplicationDidEnterBackground];
 	
 	// Time difference between when the application was closed and now
@@ -150,8 +158,7 @@
     [self applicationDidEnterBackground:application];
 }
 
-#pragma mark -
-#pragma mark Key lock methods
+#pragma mark - Key lock methods
 
 -(void)openKeyLockView
 {	
@@ -270,8 +277,7 @@
 }
 
 
-#pragma mark -
-#pragma mark Core Data stack
+#pragma mark - Core Data stack
 /**
  Returns the managed object context for the application.
  If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
@@ -346,7 +352,7 @@
 											  otherButtonTitles:nil];
 		[alert show];
 		[alert release];
-		
+		/*
 		// If the upgrade failed we remove the database file and create a new one. This should solve the problem :)		
 		NSFileManager *fileManager = [NSFileManager defaultManager];
 				
@@ -361,7 +367,7 @@
 				// Handle error
 			}    
 			
-		}
+		}*/
 		
     }    
 	
@@ -369,8 +375,7 @@
 }
 
 
-#pragma mark -
-#pragma mark Application's documents directory
+#pragma mark - Application's documents directory
 
 /**
  Returns the path to the application's documents directory.
@@ -382,9 +387,56 @@
     return basePath;
 }
 
+#pragma mark - Version updates
 
-#pragma mark -
-#pragma mark Memory management
+- (void)updateDataModelForVersion3 
+{    
+    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
+    
+    for (NSString *bankIdentifier in [MittSaldoSettings configuredBanks]) {
+        ConfiguredBank *bank = [NSEntityDescription insertNewObjectForEntityForName:@"ConfiguredBank" inManagedObjectContext:self.managedObjectContext];
+        bank.name = bankIdentifier;
+        bank.bankIdentifier = bankIdentifier;
+        bank.ssn = [settings objectForKey:[NSString stringWithFormat:@"%@_ssn_preference", bankIdentifier]];
+        bank.password = [settings objectForKey:[NSString stringWithFormat:@"%@_pwd_preference", bankIdentifier]];
+        
+        NSString *bookmarkString = [settings valueForKey:[NSString stringWithFormat:@"%@Bookmark", bankIdentifier]];
+        if (bookmarkString) {
+            bank.bookmarkURL = [NSURL URLWithString:bookmarkString];
+        }       
+        
+        
+        NSMutableArray* mutableFetchResults = [CoreDataHelper searchObjectsInContext:@"Account" 
+                                                                           predicate:[NSPredicate predicateWithFormat:@"(bankIdentifier == '%@')", bankIdentifier] 
+                                                                             sortKey:@"accountid" 
+                                                                       sortAscending:YES 
+                                                                managedObjectContext:self.managedObjectContext];
+        
+        for (BankAccount *account in mutableFetchResults) {
+            [account setConfiguredbank:bank];
+        }
+    }
+    
+    NSError * error;
+    // Store the objects
+    if (![self.managedObjectContext save:&error]) {
+        // Log the error.
+        NSLog(@"%@, %@, %@", [error domain], [error localizedDescription], [error localizedFailureReason]);
+    }
+}
+
+
+- (void)runVersionUpgrades
+{
+    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
+    if (![settings valueForKey:@"updateDataModelForVersion3"] && [[MittSaldoSettings configuredBanks] count] > 0) {
+        [self updateDataModelForVersion3];
+        [settings setValue:@"OK" forKey:@"updateDataModelForVersion3"];
+        [settings synchronize];
+    }
+}
+
+#pragma mark - Memory management
 
 - (void)dealloc {
 	[navigationController release];

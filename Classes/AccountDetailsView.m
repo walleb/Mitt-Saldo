@@ -10,6 +10,7 @@
 
 #import "AccountDetailsView.h"
 #import "MittSaldoAppDelegate.h"
+#import "UITextInputCell.h"
 
 @implementation AccountDetailsView
 @synthesize managedObjectContext, accountToEdit;

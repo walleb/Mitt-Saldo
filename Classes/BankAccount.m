@@ -1,26 +1,25 @@
 //
-//  Created by Björn Sållarp on 2010-05-16.
-//  NO Copyright 2010 MightyLittle Industries. NO rights reserved.
-// 
-//  Use this code any way you like. If you do like it, please
-//  link to my blog and/or write a friendly comment. Thank you!
+//  BankAccount.m
+//  MittSaldo
 //
-//  Read my blog @ http://blog.sallarp.com
+//  Created by Björn Sållarp on 10/2/11.
+//  Copyright (c) 2011 Björn Sållarp. All rights reserved.
 //
 
 #import "BankAccount.h"
+#import "ConfiguredBank.h"
 
 
-@implementation BankAccount 
-
+@implementation BankAccount
 @dynamic amount;
-@dynamic availableAmount;
-@dynamic displayName;
 @dynamic bankIdentifier;
+@dynamic displayName;
 @dynamic updatedDate;
 @dynamic displayAccount;
+@dynamic availableAmount;
 @dynamic accountid;
 @dynamic accountName;
+@dynamic configuredbank;
 
 - (void)setAccountName:(NSString *)accountName
 {

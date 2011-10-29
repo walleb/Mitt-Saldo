@@ -10,6 +10,8 @@
 
 
 #import "MittSaldoSettings.h"
+#import "CoreDataHelper.h"
+#import "ConfiguredBank.h"
 
 @implementation MittSaldoSettings
 
@@ -111,6 +113,11 @@
 	}
 		
 	return configuredBanks;
+}
+
++ (NSArray *)configuredBanks:(NSManagedObjectContext *)context
+{
+    return [CoreDataHelper getObjectsFromContext:@"ConfiguredBank" sortKey:@"bankIdentifier" sortAscending:YES managedObjectContext:context];
 }
 
 + (void)resetAllPersonalInformation

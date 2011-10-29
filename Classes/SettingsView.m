@@ -11,9 +11,17 @@
 #import "SettingsView.h"
 #import "MittSaldoAppDelegate.h"
 #import "DebugTableViewController.h"
+#import "AvailableBanksTableViewController.h"
+#import "BankSettingsViewController.h"
+#import "ConfiguredBank.h"
+
+@interface SettingsView ()
+@property (nonatomic, readonly) NSArray *configuredBanks;
+@end
 
 @implementation SettingsView
-@synthesize managedObjectContext, settingsTable;
+@synthesize managedObjectContext = __managedObjectContext;
+@synthesize settingsTable = __settingsTable;
 
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -23,35 +31,44 @@
 	
 	self.title = NSLocalizedString(@"Settings", nil);
 	self.managedObjectContext = ((MittSaldoAppDelegate*)[[UIApplication sharedApplication] delegate]).managedObjectContext;
-	self.settingsTable.keyboardDelegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [__configuredBanks release];
+    __configuredBanks = nil;
     [self.settingsTable reloadData];
 }
 
+#pragma mark - Table view delegate
 
-#pragma mark -
-#pragma mark Table view data source
-// Customize the number of sections in the table view.
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	// We plus one because the first section is general application settings
-	return [[MittSaldoSettings supportedBanks] count] + 1;
-}
-
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
-{
-	if (indexPath.section == 0 && indexPath.row == 3) {
+    if (indexPath.section == 0 && indexPath.row == 3) {
 		DebugTableViewController *debugView = [[DebugTableViewController alloc] initWithNibName:@"DebugTableView" 
 																						 bundle:[NSBundle mainBundle]];
-
+        
 		debugView.managedObjectContext = self.managedObjectContext;
 		[self.navigationController pushViewController:debugView animated:YES];
 		[debugView release];
 	}
+    else if (indexPath.section == 1) {
+        if (indexPath.row >= [self.configuredBanks count]) {
+            [self.navigationController pushViewController:[AvailableBanksTableViewController availableBanksTableViewWithContext:self.managedObjectContext] animated:YES];
+        }
+        else {
+            ConfiguredBank *bank = [self.configuredBanks objectAtIndex:indexPath.row];
+            [self.navigationController pushViewController:[BankSettingsViewController bankSettingsTableWithConfiguredBank:bank andManagedObjectContext:self.managedObjectContext] animated:YES];
+        }
+    }
+}
+
+
+#pragma mark - Table view data source
+// Customize the number of sections in the table view.
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+	return 2;
 }
 
 // Customize the number of rows in the table view.
@@ -66,12 +83,7 @@
         }
 	}
     else {
-        rows = 2;
-        
-        NSString *bankIdentifier = [[MittSaldoSettings supportedBanks] objectAtIndex:section-1];
-        if ([MittSaldoSettings isBookmarkSetForBank:bankIdentifier]) {
-            rows = 3;
-        }
+        rows = [self.configuredBanks count] + 1;
     }
 	
 	return rows;
@@ -85,16 +97,15 @@
 		name = NSLocalizedString(@"ApplicationSettings", nil);
 	}
 	else {
-		name = [[MittSaldoSettings supportedBanks] objectAtIndex:section-1];
+		name = @"Banker";
 	}
 	
 	return name;
 }
 
 // Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
+{    
 	UITableViewCell *cell = nil;
 	
 	if (indexPath.section == 0) {
@@ -147,62 +158,30 @@
 			cell.selectionStyle = UITableViewCellSelectionStyleNone;
 			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 		}
+        
+        // The cells are not selectable
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
 	}
 	// Cells for a bank specific settings
 	else if (indexPath.section > 0) {
-        if (indexPath.row < 2) {
-            static NSString *cellIdentifier = @"inputcell";
-            UITextInputCell *inputCell = (UITextInputCell*)[settingsTable dequeueReusableCellWithIdentifier:cellIdentifier];
-            if (inputCell == nil) {
-                inputCell = [[[UITextInputCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
-            }
-            
-            NSString *bankIdentifier = [[MittSaldoSettings supportedBanks] objectAtIndex:indexPath.section-1];
-            if (indexPath.row == 0) {
-                inputCell.textLabel.text = NSLocalizedString(@"SSN", nil);
-                inputCell.textField.text = [defaults objectForKey:[NSString stringWithFormat:@"%@_ssn_preference", bankIdentifier]];
-                inputCell.textField.settingsKey = [NSString stringWithFormat:@"%@_ssn_preference", bankIdentifier];
-                inputCell.textField.secureTextEntry = NO;
-                inputCell.textField.keyboardType = UIKeyboardTypeNumberPad;
-            }
-            else if (indexPath.row == 1) {
-                inputCell.textLabel.text = NSLocalizedString(@"Password", nil);
-                inputCell.textField.text = [defaults objectForKey:[NSString stringWithFormat:@"%@_pwd_preference", bankIdentifier]];
-                inputCell.textField.settingsKey = [NSString stringWithFormat:@"%@_pwd_preference", bankIdentifier];
-                inputCell.textField.secureTextEntry = YES;
-                inputCell.textField.keyboardType = UIKeyboardTypeDefault;
-            }
-            
-            inputCell.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-            inputCell.textField.delegate = self;
-            cell = inputCell;
+        
+        cell = [settingsTable dequeueReusableCellWithIdentifier:@"normalcell"];
+        if(cell == nil) {
+            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"normalcell"] autorelease];
         }
-        else if (indexPath.row == 2) {
-            UITableViewCell *buttonCell = (UITableViewCell*)[settingsTable dequeueReusableCellWithIdentifier:@"BookmarkCell"];
-            if (buttonCell == nil) {
-                buttonCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"BookmarkCell"] autorelease];
-            }
-          
-            buttonCell.textLabel.text = NSLocalizedString(@"Bookmark", nil);;
-            
-            UIButton *removeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-            removeBtn.tag = indexPath.section; // Set the tag so we can identify the button
-            [removeBtn setBackgroundImage:[UIImage imageNamed:@"delete-btn"] forState:UIControlStateNormal];
-            [removeBtn setTitle:@"Radera" forState:UIControlStateNormal];
-            removeBtn.titleLabel.font = [UIFont boldSystemFontOfSize:14];
-            [removeBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            removeBtn.frame = CGRectMake(0, 0, 63, 33);
-            [removeBtn addTarget:self action:@selector(removeBookmark:) forControlEvents:UIControlEventTouchUpInside];
-            
-            [buttonCell setAccessoryView:removeBtn];
-            
-            cell = buttonCell;
+
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        
+        if (indexPath.row < [self.configuredBanks count]) {
+            ConfiguredBank *bank = [self.configuredBanks objectAtIndex:indexPath.row];
+            cell.textLabel.text = bank.name;
+        }
+        else {
+            cell.textLabel.text = @"Lägg till ny bank..";
         }
 	}
 
-	// The cells are not selectable
-	cell.selectionStyle = UITableViewCellSelectionStyleNone;
-	
+
 	return cell;
 }
 
@@ -269,8 +248,7 @@
 	return 44;
 }
 
-#pragma mark -
-#pragma mark Key lock delegate methods
+#pragma mark - Key lock delegate methods
 -(void)validateKeyCombination:(NSArray*)keyCombination sender:(id)sender
 {
 	int comboCount = [keyCombination count];
@@ -288,8 +266,7 @@
 	}
 }
 
-#pragma mark -
-#pragma mark Switch delegate methods
+#pragma mark - Switch delegate methods
 -(IBAction)debugModeChanged:(id)sender
 {
 	int isOn = [(UISwitch *)sender isOn] ? 1 : 0;
@@ -318,8 +295,7 @@
 	}
 }
 
-#pragma mark -
-#pragma mark Button delegate method
+#pragma mark - Button delegate method
 
 -(void)showHiddenAccounts:(id)sender
 {
@@ -365,22 +341,7 @@
 	[alert release];
 }
 
-- (IBAction)removeBookmark:(id)sender
-{
-    UIControl *btn = sender;
-    NSString *bankIdentifier = [[MittSaldoSettings supportedBanks] objectAtIndex:(btn.tag - 1)];
-    
-    if (bankIdentifier) {
-        BankSettings *settings = [BankSettings settingsForBank:bankIdentifier];
-        settings.bookmarkedURL = nil;
-        [settings save];
-        
-        [self.settingsTable deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:2 inSection:btn.tag]] withRowAnimation:UITableViewRowAnimationTop];
-    }
-}
-
-#pragma mark -
-#pragma mark UIAlertView delegate methods
+#pragma mark - UIAlertView delegate methods
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -416,50 +377,20 @@
 	}
 }
 
-#pragma mark -
-#pragma mark Text Field delegate methods
 
-// Hide the keyboard on return
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
+
+#pragma mark - Accessors
+
+- (NSArray *)configuredBanks
 {
-	[textField resignFirstResponder];
-	return YES;
+    if (__configuredBanks == nil) {
+        __configuredBanks = [[MittSaldoSettings configuredBanks:self.managedObjectContext] retain];
+    }
+    
+    return __configuredBanks;
 }
 
-// When the user focus on the textfield we move it up so that it
-// is not hidden by the keyboard.
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-	BSSettingsTextField *settingsField = (BSSettingsTextField*)textField;
-	NSIndexPath* path = [settingsTable indexPathForCell:[settingsField parentCell]];
-	[self.settingsTable textFieldStatusChanged:textField scrollToIndex:path];
-}
-
-// When the user is done editing we save the setting
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
-	// Cast the textbox to our custom class and save the input
-	BSSettingsTextField *settingsField = (BSSettingsTextField*)textField;
-	[settingsField saveSetting];
-	
-	NSIndexPath* path = [settingsTable indexPathForCell:[settingsField parentCell]];
-	[self.settingsTable textFieldStatusChanged:textField scrollToIndex:path];
-	
-	// A swedish SSN is 10 digits. Show an alert if the entered value length isn't 10 or 12
-	int length = [settingsField.text length];
-	if (!settingsField.secureTextEntry && length > 0 && length != 10 && length != 12) {
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"InputErrorQuestion", nil) 
-														message:[NSString stringWithFormat:@"%@ %d", NSLocalizedString(@"SSNInputError", nil), [settingsField.text length]]  
-													   delegate:nil 
-											  cancelButtonTitle:NSLocalizedString(@"OK", nil)   
-											  otherButtonTitles:nil];
-		[alert show];
-		[alert release];
-	}
-}
-
-#pragma mark -
-#pragma mark Memmory management
+#pragma mark - Memmory management
 - (void)didReceiveMemoryWarning 
 {
     [super didReceiveMemoryWarning];

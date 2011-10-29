@@ -12,14 +12,21 @@
 
 @implementation BSKeyboardAwareTableView
 @synthesize keyboardDelegate;
+@synthesize textField = __textField;
+
+- (void)dealloc
+{
+    self.textField = nil;
+    [super dealloc];
+}
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
 	UITouch *touch = [touches anyObject];
 	
-	if(textField && keyboardDelegate && [touch tapCount] == 1)
+	if(self.textField && keyboardDelegate && [touch tapCount] == 1)
 	{
-		[keyboardDelegate textFieldShouldReturn:textField];
+		[keyboardDelegate textFieldShouldReturn:self.textField];
 	}
 	
 	[super touchesBegan:touches withEvent:event];
@@ -36,13 +43,13 @@
 	if([txtField isFirstResponder])
 	{
 		myFrame.size.height -= frameMovement;
-		textField = txtField;
+		self.textField = txtField;
 		movingUp = YES;
 	}
 	else 
 	{
 		myFrame.size.height += frameMovement;
-		textField = nil;
+		self.textField = nil;
 	}
 	
 	[UIView beginAnimations: @"anim" context: nil];

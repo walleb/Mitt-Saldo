@@ -13,7 +13,6 @@
 #import "KeyLockViewController.h"
 #import "BSKeyLock.h"
 #import "UISwitchCell.h"
-#import "UITextInputCell.h"
 #import "BSSettingsTextField.h"
 #import "BSKeyboardAwareTableView.h"
 #import "MittSaldoSettings.h"
@@ -21,10 +20,10 @@
 
 @class MittSaldoAppDelegate;
 
-@interface SettingsView : UIViewController <BSKeyLockDelegate, UITableViewDelegate, UITextFieldDelegate> {
+@interface SettingsView : UIViewController <BSKeyLockDelegate, UITableViewDelegate> {
 	UISwitch *appLockSwitch;
 	BSKeyboardAwareTableView *settingsTable;
-	
+	NSArray *__configuredBanks;
 	NSManagedObjectContext *managedObjectContext;
 }
 @property (retain, nonatomic) NSManagedObjectContext *managedObjectContext;

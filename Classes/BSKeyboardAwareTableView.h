@@ -14,9 +14,8 @@
 @interface BSKeyboardAwareTableView : UITableView 
 {
 	id<UITextFieldDelegate, NSObject> keyboardDelegate;
-	UITextField *textField;
 }
-
+@property (nonatomic, retain) UITextField *textField;
 @property (nonatomic, assign) id<UITextFieldDelegate, NSObject> keyboardDelegate;
 
 -(void)textFieldStatusChanged:(UITextField*)txtField scrollToIndex:(NSIndexPath *)index;

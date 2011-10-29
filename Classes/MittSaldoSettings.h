@@ -10,12 +10,11 @@
 
 
 #import <Foundation/Foundation.h>
-#import "BankSettings.h"
+#import <CoreData/CoreData.h>
 
-@interface MittSaldoSettings : NSObject {
+@interface MittSaldoSettings : NSObject
 
-}
-
++ (NSArray *)configuredBanks:(NSManagedObjectContext *)context;
 + (NSArray *)configuredBanks;
 + (NSString*)bankShortName:(NSString*)bankIdentifier;
 + (void)loadStandardSettings;

@@ -29,7 +29,6 @@
 		F4052EF213116C34005AAC54 /* SEBAccountParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F4052EF113116C33005AAC54 /* SEBAccountParser.m */; };
 		F41DF62A127F5B4100C57927 /* MittSaldo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F41DF627127F5B4100C57927 /* MittSaldo.xcdatamodeld */; };
 		F42B49E71359F6B2003CD7B9 /* bookmark.png in Resources */ = {isa = PBXBuildFile; fileRef = F42B49E61359F6B2003CD7B9 /* bookmark.png */; };
-		F42B49E9135B0F42003CD7B9 /* delete-btn.png in Resources */ = {isa = PBXBuildFile; fileRef = F42B49E8135B0F42003CD7B9 /* delete-btn.png */; };
 		F439AB87118D900D00AF52C0 /* LoginParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F439AB86118D900D00AF52C0 /* LoginParser.m */; };
 		F439AD79119C06B400AF52C0 /* AccountUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = F439AD78119C06B400AF52C0 /* AccountUpdater.m */; };
 		F44185021354258A00A27A04 /* SwedbankLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = F44185011354258A00A27A04 /* SwedbankLogin.m */; };
@@ -72,6 +71,12 @@
 		F4534C22121813C000BF6D4A /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = F4534C1C121813C000BF6D4A /* iTunesArtwork.png */; };
 		F4570F0F119ECFB10087DC1E /* SwedbankAccountParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F4570F0E119ECFB10087DC1E /* SwedbankAccountParser.m */; };
 		F45A466912ABE6F5009C214F /* AccountInfoTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F45A466812ABE6F5009C214F /* AccountInfoTableView.m */; };
+		F4603FC9143874C200873BB4 /* ConfiguredBank.m in Sources */ = {isa = PBXBuildFile; fileRef = F4603FC8143874C200873BB4 /* ConfiguredBank.m */; };
+		F4603FD0143889B700873BB4 /* NSString+helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = F4603FCF143889B700873BB4 /* NSString+helpers.m */; };
+		F4603FD31438A20500873BB4 /* button_red.png in Resources */ = {isa = PBXBuildFile; fileRef = F4603FD11438A20500873BB4 /* button_red.png */; };
+		F4603FD41438A20500873BB4 /* button_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4603FD21438A20500873BB4 /* button_red@2x.png */; };
+		F461EB1B14371AE500D06E7C /* BankSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F461EB1914371AE500D06E7C /* BankSettingsViewController.m */; };
+		F461EB1C14371AE500D06E7C /* BankSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = F461EB1A14371AE500D06E7C /* BankSettings.xib */; };
 		F46F8E1011AB04E600CE896C /* KeyLockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F46F8E0E11AB04E600CE896C /* KeyLockViewController.m */; };
 		F46F8E7811AB0B6F00CE896C /* BSKeyLock.m in Sources */ = {isa = PBXBuildFile; fileRef = F46F8E7711AB0B6F00CE896C /* BSKeyLock.m */; };
 		F46F931011AF1D0600CE896C /* keylockbg.png in Resources */ = {isa = PBXBuildFile; fileRef = F46F930F11AF1D0600CE896C /* keylockbg.png */; };
@@ -82,6 +87,8 @@
 		F47FE01F138EB8D500F9AA46 /* IkanoLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = F47FE01C138EB8D500F9AA46 /* IkanoLogin.m */; };
 		F47FE020138EB8D500F9AA46 /* IkanoLoginParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F47FE01E138EB8D500F9AA46 /* IkanoLoginParser.m */; };
 		F48C7BDE126235FA0044B1BB /* KeyLockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F48C7BDD126235FA0044B1BB /* KeyLockViewController.xib */; };
+		F495C746143606C40098A31F /* AvailableBanksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F495C744143606C40098A31F /* AvailableBanksTableViewController.m */; };
+		F495C747143606C40098A31F /* AvailableBanksTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = F495C745143606C40098A31F /* AvailableBanksTable.xib */; };
 		F49D59FB12ABF86000E2F4BD /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = F49D59F812ABF86000E2F4BD /* ASIDataCompressor.m */; };
 		F49D59FC12ABF86000E2F4BD /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = F49D59FA12ABF86000E2F4BD /* ASIDataDecompressor.m */; };
 		F4ACBDE4127C3BBA0054F024 /* DebugTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4ACBDE3127C3BBA0054F024 /* DebugTableView.xib */; };
@@ -164,7 +171,6 @@
 		F41DF628127F5B4100C57927 /* MittSaldo 2.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = "MittSaldo 2.xcdatamodel"; sourceTree = "<group>"; };
 		F41DF629127F5B4100C57927 /* MittSaldo.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = MittSaldo.xcdatamodel; sourceTree = "<group>"; };
 		F42B49E61359F6B2003CD7B9 /* bookmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bookmark.png; path = images/bookmark.png; sourceTree = "<group>"; };
-		F42B49E8135B0F42003CD7B9 /* delete-btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "delete-btn.png"; path = "images/delete-btn.png"; sourceTree = "<group>"; };
 		F439AB85118D900D00AF52C0 /* LoginParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginParser.h; sourceTree = "<group>"; };
 		F439AB86118D900D00AF52C0 /* LoginParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginParser.m; sourceTree = "<group>"; };
 		F439AD77119C06B400AF52C0 /* AccountUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountUpdater.h; sourceTree = "<group>"; };
@@ -221,6 +227,16 @@
 		F4570F0E119ECFB10087DC1E /* SwedbankAccountParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwedbankAccountParser.m; sourceTree = "<group>"; };
 		F45A466712ABE6F5009C214F /* AccountInfoTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountInfoTableView.h; sourceTree = "<group>"; };
 		F45A466812ABE6F5009C214F /* AccountInfoTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountInfoTableView.m; sourceTree = "<group>"; };
+		F4603FC5143870EA00873BB4 /* MittSaldo 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MittSaldo 3.xcdatamodel"; sourceTree = "<group>"; };
+		F4603FC7143874C200873BB4 /* ConfiguredBank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfiguredBank.h; sourceTree = "<group>"; };
+		F4603FC8143874C200873BB4 /* ConfiguredBank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfiguredBank.m; sourceTree = "<group>"; };
+		F4603FCE143889B700873BB4 /* NSString+helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+helpers.h"; sourceTree = "<group>"; };
+		F4603FCF143889B700873BB4 /* NSString+helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+helpers.m"; sourceTree = "<group>"; };
+		F4603FD11438A20500873BB4 /* button_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_red.png; path = images/button_red.png; sourceTree = "<group>"; };
+		F4603FD21438A20500873BB4 /* button_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button_red@2x.png"; path = "images/button_red@2x.png"; sourceTree = "<group>"; };
+		F461EB1814371AE500D06E7C /* BankSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankSettingsViewController.h; sourceTree = "<group>"; };
+		F461EB1914371AE500D06E7C /* BankSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankSettingsViewController.m; sourceTree = "<group>"; };
+		F461EB1A14371AE500D06E7C /* BankSettings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankSettings.xib; sourceTree = "<group>"; };
 		F46F8E0D11AB04E600CE896C /* KeyLockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyLockViewController.h; sourceTree = "<group>"; };
 		F46F8E0E11AB04E600CE896C /* KeyLockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyLockViewController.m; sourceTree = "<group>"; };
 		F46F8E7611AB0B6F00CE896C /* BSKeyLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSKeyLock.h; sourceTree = "<group>"; };
@@ -238,6 +254,9 @@
 		F47FE01D138EB8D500F9AA46 /* IkanoLoginParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IkanoLoginParser.h; sourceTree = "<group>"; };
 		F47FE01E138EB8D500F9AA46 /* IkanoLoginParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IkanoLoginParser.m; sourceTree = "<group>"; };
 		F48C7BDD126235FA0044B1BB /* KeyLockViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = KeyLockViewController.xib; path = xib/KeyLockViewController.xib; sourceTree = "<group>"; };
+		F495C743143606C40098A31F /* AvailableBanksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvailableBanksTableViewController.h; sourceTree = "<group>"; };
+		F495C744143606C40098A31F /* AvailableBanksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvailableBanksTableViewController.m; sourceTree = "<group>"; };
+		F495C745143606C40098A31F /* AvailableBanksTable.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvailableBanksTable.xib; sourceTree = "<group>"; };
 		F49D59F712ABF86000E2F4BD /* ASIDataCompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIDataCompressor.h; path = ASIHTTPRequest/ASIDataCompressor.h; sourceTree = "<group>"; };
 		F49D59F812ABF86000E2F4BD /* ASIDataCompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASIDataCompressor.m; path = ASIHTTPRequest/ASIDataCompressor.m; sourceTree = "<group>"; };
 		F49D59F912ABF86000E2F4BD /* ASIDataDecompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIDataDecompressor.h; path = ASIHTTPRequest/ASIDataDecompressor.h; sourceTree = "<group>"; };
@@ -404,6 +423,8 @@
 				F4F83C57127C192C00B537CC /* Swizzle.m */,
 				F4F83C61127C1AD500B537CC /* MyMutableURLRequest.h */,
 				F4F83C62127C1AD500B537CC /* MyMutableURLRequest.m */,
+				F4603FCE143889B700873BB4 /* NSString+helpers.h */,
+				F4603FCF143889B700873BB4 /* NSString+helpers.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -491,6 +512,8 @@
 		F439ABF4118DA04D00AF52C0 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				F4603FC7143874C200873BB4 /* ConfiguredBank.h */,
+				F4603FC8143874C200873BB4 /* ConfiguredBank.m */,
 				F4ACBDEA127C3C070054F024 /* LogEntry.h */,
 				F4ACBDEB127C3C070054F024 /* LogEntry.m */,
 				F4ACBDEC127C3C070054F024 /* LogEntryClass.h */,
@@ -504,13 +527,12 @@
 		F439AD75119C066F00AF52C0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F495C73C1436059B0098A31F /* Settings */,
 				F4ACBDFA127C3C2A0054F024 /* Debug */,
 				F44634551216D0AB00CD3A2B /* AccountDetailsView.h */,
 				F44634561216D0AB00CD3A2B /* AccountDetailsView.m */,
 				28C286DF0D94DF7D0034E888 /* RootViewController.h */,
 				28C286E00D94DF7D0034E888 /* RootViewController.m */,
-				F476A8431184BC20008F84F9 /* SettingsView.h */,
-				F476A8441184BC20008F84F9 /* SettingsView.m */,
 				F47698B411A95F4B00340455 /* WebBankViewController.h */,
 				F47698B511A95F4B00340455 /* WebBankViewController.m */,
 				F4E4438811C4F17400732800 /* AboutMittSaldoViewController.h */,
@@ -574,7 +596,8 @@
 		F446ECC211A07FDA00FEAB69 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				F42B49E8135B0F42003CD7B9 /* delete-btn.png */,
+				F4603FD11438A20500873BB4 /* button_red.png */,
+				F4603FD21438A20500873BB4 /* button_red@2x.png */,
 				F42B49E61359F6B2003CD7B9 /* bookmark.png */,
 				F4CD8CA112589706003C316D /* eye_black.png */,
 				F4D994BB124E52DE00F08F97 /* eye.png */,
@@ -617,6 +640,21 @@
 				F47F889A139117310075B83B /* IkanoAccountParser.m */,
 			);
 			name = Ikano;
+			sourceTree = "<group>";
+		};
+		F495C73C1436059B0098A31F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				F476A8431184BC20008F84F9 /* SettingsView.h */,
+				F476A8441184BC20008F84F9 /* SettingsView.m */,
+				F495C743143606C40098A31F /* AvailableBanksTableViewController.h */,
+				F495C744143606C40098A31F /* AvailableBanksTableViewController.m */,
+				F495C745143606C40098A31F /* AvailableBanksTable.xib */,
+				F461EB1814371AE500D06E7C /* BankSettingsViewController.h */,
+				F461EB1914371AE500D06E7C /* BankSettingsViewController.m */,
+				F461EB1A14371AE500D06E7C /* BankSettings.xib */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		F4ACBDFA127C3C2A0054F024 /* Debug */ = {
@@ -748,6 +786,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0410;
 				ORGANIZATIONNAME = "Björn Sållarp";
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "MittSaldo" */;
@@ -810,7 +849,10 @@
 				F4ACBDE6127C3BD70054F024 /* DebugLogEntryView.xib in Resources */,
 				F441850713562E0E00A27A04 /* Settings.bundle in Resources */,
 				F42B49E71359F6B2003CD7B9 /* bookmark.png in Resources */,
-				F42B49E9135B0F42003CD7B9 /* delete-btn.png in Resources */,
+				F495C747143606C40098A31F /* AvailableBanksTable.xib in Resources */,
+				F461EB1C14371AE500D06E7C /* BankSettings.xib in Resources */,
+				F4603FD31438A20500873BB4 /* button_red.png in Resources */,
+				F4603FD41438A20500873BB4 /* button_red@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -881,6 +923,10 @@
 				F47FE01F138EB8D500F9AA46 /* IkanoLogin.m in Sources */,
 				F47FE020138EB8D500F9AA46 /* IkanoLoginParser.m in Sources */,
 				F47F889B139117310075B83B /* IkanoAccountParser.m in Sources */,
+				F495C746143606C40098A31F /* AvailableBanksTableViewController.m in Sources */,
+				F461EB1B14371AE500D06E7C /* BankSettingsViewController.m in Sources */,
+				F4603FC9143874C200873BB4 /* ConfiguredBank.m in Sources */,
+				F4603FD0143889B700873BB4 /* NSString+helpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -936,6 +982,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -944,6 +991,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				OTHER_LDFLAGS = "";
 				PREBINDING = NO;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -953,6 +1001,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -961,6 +1010,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -970,6 +1020,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -978,6 +1029,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
+				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1030,10 +1082,11 @@
 		F41DF627127F5B4100C57927 /* MittSaldo.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				F4603FC5143870EA00873BB4 /* MittSaldo 3.xcdatamodel */,
 				F41DF628127F5B4100C57927 /* MittSaldo 2.xcdatamodel */,
 				F41DF629127F5B4100C57927 /* MittSaldo.xcdatamodel */,
 			);
-			currentVersion = F41DF628127F5B4100C57927 /* MittSaldo 2.xcdatamodel */;
+			currentVersion = F4603FC5143870EA00873BB4 /* MittSaldo 3.xcdatamodel */;
 			path = MittSaldo.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
