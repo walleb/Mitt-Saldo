@@ -10,16 +10,11 @@
 
 
 #import <Foundation/Foundation.h>
-#import "BankLogin.h"
-#import "BankLoginBase.h"
 
-@class SwedbankLoginParser;
+typedef void (^MSBankLoginSuccessBlock)();
+typedef void (^MSBankLoginFailureBlock)(NSString *errorMessage);
 
-@interface SwedbankLogin : BankLoginBase <BankLogin> {
-    SwedbankLoginParser *loginParser;
-    NSUInteger loginStep;
-}
-
--(void)login:(NSString*)identifier;
-
+@interface SwedbankLogin : NSObject
++ (id)swedbankLoginWithUsername:(NSString *)username andPassword:(NSString *)password;
+- (void)performLoginWithSuccessBlock:(MSBankLoginSuccessBlock)success failure:(MSBankLoginFailureBlock)failure;
 @end

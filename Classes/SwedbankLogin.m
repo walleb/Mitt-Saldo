@@ -9,135 +9,135 @@
 //
 
 #import "SwedbankLogin.h"
+#import "MSNetworkingClient.h"
 #import "MittSaldoSettings.h"
 #import "SwedbankLoginParser.h"
 
+NSString * const kMSSwedbankLoginURL = @"https://mobilbank.swedbank.se/banking/swedbank/login.html";
+
 @interface SwedbankLogin ()
+- (void)loginStepTwo;
+- (void)loginStepThree;
+- (void)postLoginWithCompletionBlock:(void (^)(AFHTTPRequestOperation *requestOperation))block;
+- (void)reportFailure:(NSString *)failure;
+@property (nonatomic, retain) NSString *username;
+@property (nonatomic, retain) NSString *password;
 @property (nonatomic, retain) SwedbankLoginParser *loginParser;
+@property (nonatomic, copy) MSBankLoginSuccessBlock successBlock;
+@property (nonatomic, copy) MSBankLoginFailureBlock failureBlock;
 @end
 
 @implementation SwedbankLogin
-@synthesize loginParser;
-@dynamic delegate, errorMessage, wasCancelled, settings, debugLog;
-
--(void)login:(NSString*)identifier
-{
-	self.settings = [BankSettings settingsForBank:identifier];
-    // Swedbank has a two-step authentication. We use the same parser for both
-    self.loginParser = [[[SwedbankLoginParser alloc] init] autorelease];
-    loginStep = 1;
-    
-	[self fetchLoginPage:self successSelector:@selector(loginRequestSucceeded:) failSelector:@selector(requestFailed:)];
-}
-
-#pragma mark -
-#pragma mark Response parsing methods
-
--(void)parseLoginPage:(NSData*)data
-{
-	[data retain];
-	
-	// First we need to parse the menu because the login page change URL over time
-	NSError *error = nil;
-	
-	if([loginParser parseXMLData:data parseError:&error])
-	{
-		if(loginParser.csrf_token == nil || [loginParser.csrf_token isEqualToString:@""])
-		{
-			self.errorMessage = @"Kunde inte avkoda inloggningsformuläret";
-		}
-	}
-	
-	[data release];
-	
-	if(self.errorMessage == nil) {
-
-        // We always expec a csrf token and a username field to be parsed
-        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-        [dict setValue:settings.username forKey:loginParser.usernameField];
-        [dict setValue:loginParser.csrf_token forKey:@"_csrf_token"];
-        
-        if (loginStep == 1) {
-            
-            // Use personal code, not digipass
-            [dict setValue:@"code" forKey:@"auth-method"];
-            
-            // Update the URL we're posting to, the login sequence is multiple steps
-            self.settings.loginURL = [NSURL URLWithString:loginParser.nextLoginStepUrl relativeToURL:self.settings.loginURL];
-            
-            debug_NSLog(@"First step, posting to: %@. Usernamefield: %@. csrf_token: %@", [self.settings.loginURL absoluteString], loginParser.usernameField, loginParser.csrf_token);
-            
-            // Move on to the next step
-            loginStep++;
-            
-            // Post for first step authentication, we use the same success selector so that a successfull post ends up back here again 
-            [self postLogin:self successSelector:@selector(loginRequestSucceeded:) failSelector:@selector(requestFailed:) postValues:dict];
-        }
-        else if(loginStep == 2) 
-        {
-            // Update the login url, it has changed again for the seconds step
-            self.settings.loginURL = [NSURL URLWithString:loginParser.nextLoginStepUrl relativeToURL:self.settings.loginURL];
-            
-            // Add the password field. We got this from the first step. The csrf and username is added above.
-            [dict setValue:settings.password forKey:loginParser.passwordField];
-            debug_NSLog(@"Second step, posting to: %@. Usernamefield: %@. PasswordField: %@. csrf_token: %@", 
-                        [self.settings.loginURL absoluteString], loginParser.usernameField, loginParser.passwordField, loginParser.csrf_token);
-            
-            [self postLogin:self successSelector:@selector(postLoginRequestSucceeded:) failSelector:@selector(requestFailed:) postValues:dict];
-        }
-    }
-	else if(delegate)
-	{
-		[delegate loginFailed:self];
-	}
-}
-
-
--(void)postLoginSucceeded:(NSString*)recievedPage
-{
-    // Check if the page has a csrf token, if so, it's likely we're back at a login page
-	if([recievedPage rangeOfString:@"_csrf_token"].length > 0)
-	{
-		[delegate performSelector:@selector(loginFailed:) withObject:self];
-	}
-	else 
-	{
-		[delegate performSelector:@selector(loginSucceeded:) withObject:self];
-	}
-}
-
-#pragma mark -
-#pragma mark Request delegates
-
--(void)postLoginRequestSucceeded:(id)request
-{
-	if(debugLog != nil)
-	{
-		[debugLog appendStep:@"postLoginRequestSucceeded" logContent:[NSString stringWithFormat:@"URL: %@\r\nContent: %@", [[request url] absoluteString], [request responseString]]];
-	}
-	
-	[self performSelectorOnMainThread:@selector(postLoginSucceeded:) withObject:[request responseString] waitUntilDone:NO];
-}
-
--(void)loginRequestSucceeded:(id)request
-{
-	if(debugLog != nil)
-	{
-		[debugLog appendStep:@"loginRequestSucceeded" logContent:[NSString stringWithFormat:@"URL: %@\r\nContent: %@", [[request url] absoluteString], [request responseString]]];
-	}
-	
-	[self performSelectorOnMainThread:@selector(parseLoginPage:) withObject:[request responseData] waitUntilDone:NO];
-}
-
-
-
-#pragma mark -
-#pragma mark Memory management
+@synthesize username = _username;
+@synthesize password = _password;
+@synthesize loginParser = _loginParser;
+@synthesize successBlock = _successBlock;
+@synthesize failureBlock = _failureBlock;
 
 -(void)dealloc
 {
-    [loginParser release];
+    [_successBlock release];
+    [_failureBlock release];
+    [_password release];
+    [_username release];
+    [_loginParser release];
 	[super dealloc];
+}
+
++ (id)swedbankLoginWithUsername:(NSString *)username andPassword:(NSString *)password
+{
+    SwedbankLogin *login = [[self alloc] init];
+    login.username = username;
+    login.password = password;
+    
+    return [login autorelease];
+}
+
+- (void)performLoginWithSuccessBlock:(MSBankLoginSuccessBlock)success failure:(MSBankLoginFailureBlock)failure 
+{
+    self.loginParser = [[[SwedbankLoginParser alloc] init] autorelease];
+    self.successBlock = success;
+    self.failureBlock = failure;
+    
+    NSURL *loginUrl = [NSURL URLWithString:kMSSwedbankLoginURL];
+    [[MSNetworkingClient sharedClient] getRequestWithURL:loginUrl completionBlock:^(AFHTTPRequestOperation *requestOperation) {
+        if ([requestOperation hasAcceptableStatusCode]) {
+            
+            if ([self.loginParser parseXMLData:requestOperation.responseData parseError:nil]) {
+                if (self.loginParser.csrf_token == nil || [self.loginParser.csrf_token isEqualToString:@""]) {
+                    [self reportFailure:@"Kunde inte avkoda inloggningsformuläret"];
+                }
+                else {                    
+                    [self loginStepTwo];                    
+
+                }
+            }
+        }
+        else {
+            [self reportFailure:[requestOperation.error localizedDescription]];
+        }
+    }];
+}
+
+- (void)loginStepTwo
+{
+   [self postLoginWithCompletionBlock:^(AFHTTPRequestOperation *requestOperation) {
+       if ([requestOperation hasAcceptableStatusCode]) {
+           [self.loginParser parseXMLData:requestOperation.responseData parseError:nil];
+           
+           if (self.loginParser.passwordField) {
+               [self loginStepThree];
+           }
+           else {
+               [self reportFailure:@"Kunde inte avkoda inloggningsformuläret"];
+           }
+       } 
+       else {
+           [self reportFailure:[requestOperation.error localizedDescription]];
+       }
+   }];
+}
+
+- (void)loginStepThree
+{
+    [self postLoginWithCompletionBlock:^(AFHTTPRequestOperation *requestOperation) {
+        if ([requestOperation hasAcceptableStatusCode]) {
+            
+            if ([requestOperation.responseString rangeOfString:@"_csrf_token"].length > 0) {
+                [self reportFailure:nil];
+            }
+            else {
+                if (self.successBlock) {
+                    self.successBlock();
+                }
+            }
+        } 
+        else {
+            [self reportFailure:[requestOperation.error localizedDescription]];
+        }
+    }];
+}
+
+- (void)postLoginWithCompletionBlock:(void (^)(AFHTTPRequestOperation *requestOperation))block
+{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setValue:self.username forKey:self.loginParser.usernameField];
+    [params setValue:self.loginParser.csrf_token forKey:@"_csrf_token"];
+    [params setValue:@"code" forKey:@"auth-method"];
+    
+    if (self.loginParser.passwordField) {
+        [params setValue:self.password forKey:self.loginParser.passwordField];
+    }
+    
+    NSURL *postUrl = [NSURL URLWithString:self.loginParser.nextLoginStepUrl relativeToURL:[NSURL URLWithString:kMSSwedbankLoginURL]];
+    [[MSNetworkingClient sharedClient] postRequestWithURL:postUrl andParameters:params completionBlock:block];
+}
+
+- (void)reportFailure:(NSString *)failure
+{
+    if (self.failureBlock) {
+        self.failureBlock(failure);
+    }
 }
 
 @end

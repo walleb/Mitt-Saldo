@@ -29,12 +29,40 @@
 		F4052EF213116C34005AAC54 /* SEBAccountParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F4052EF113116C33005AAC54 /* SEBAccountParser.m */; };
 		F41DF62A127F5B4100C57927 /* MittSaldo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F41DF627127F5B4100C57927 /* MittSaldo.xcdatamodeld */; };
 		F42B49E71359F6B2003CD7B9 /* bookmark.png in Resources */ = {isa = PBXBuildFile; fileRef = F42B49E61359F6B2003CD7B9 /* bookmark.png */; };
+		F42DDFFF148BB863007E63C6 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = F42DDFEA148BB863007E63C6 /* AFHTTPClient.m */; };
+		F42DE000148BB863007E63C6 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F42DDFEC148BB863007E63C6 /* AFHTTPRequestOperation.m */; };
+		F42DE001148BB863007E63C6 /* AFImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F42DDFEE148BB863007E63C6 /* AFImageCache.m */; };
+		F42DE002148BB863007E63C6 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F42DDFF0148BB863007E63C6 /* AFImageRequestOperation.m */; };
+		F42DE003148BB863007E63C6 /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F42DDFF2148BB863007E63C6 /* AFJSONRequestOperation.m */; };
+		F42DE004148BB863007E63C6 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F42DDFF5148BB863007E63C6 /* AFNetworkActivityIndicatorManager.m */; };
+		F42DE005148BB863007E63C6 /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F42DDFF8148BB863007E63C6 /* AFPropertyListRequestOperation.m */; };
+		F42DE006148BB863007E63C6 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F42DDFFA148BB863007E63C6 /* AFURLConnectionOperation.m */; };
+		F42DE007148BB863007E63C6 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F42DDFFC148BB863007E63C6 /* AFXMLRequestOperation.m */; };
+		F42DE008148BB863007E63C6 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = F42DDFFE148BB863007E63C6 /* UIImageView+AFNetworking.m */; };
+		F42DE010148BB95A007E63C6 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F42DE00F148BB95A007E63C6 /* SenTestingKit.framework */; };
+		F42DE011148BB95A007E63C6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4463155120EC06E00CD3A2B /* UIKit.framework */; };
+		F42DE012148BB95A007E63C6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4463159120EC07500CD3A2B /* Foundation.framework */; };
+		F42DE018148BB95B007E63C6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F42DE016148BB95B007E63C6 /* InfoPlist.strings */; };
+		F42DE01B148BB95B007E63C6 /* MittSaldoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F42DE01A148BB95B007E63C6 /* MittSaldoTests.m */; };
+		F42DE022148BB9F6007E63C6 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F42DE021148BB9F6007E63C6 /* libz.1.2.5.dylib */; };
+		F42DE025148BBA4B007E63C6 /* SwedbankTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F42DE024148BBA4B007E63C6 /* SwedbankTests.m */; };
+		F42DE026148BBCC7007E63C6 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F42DDFEC148BB863007E63C6 /* AFHTTPRequestOperation.m */; };
+		F42DE027148BBCD7007E63C6 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = F42DDFEA148BB863007E63C6 /* AFHTTPClient.m */; };
+		F42DE028148BBCE6007E63C6 /* AFImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F42DDFEE148BB863007E63C6 /* AFImageCache.m */; };
+		F42DE029148BBCE6007E63C6 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F42DDFF0148BB863007E63C6 /* AFImageRequestOperation.m */; };
+		F42DE02A148BBCE6007E63C6 /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F42DDFF2148BB863007E63C6 /* AFJSONRequestOperation.m */; };
+		F42DE02B148BBCE6007E63C6 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F42DDFF5148BB863007E63C6 /* AFNetworkActivityIndicatorManager.m */; };
+		F42DE02C148BBCE6007E63C6 /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F42DDFF8148BB863007E63C6 /* AFPropertyListRequestOperation.m */; };
+		F42DE02D148BBCE6007E63C6 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F42DDFFA148BB863007E63C6 /* AFURLConnectionOperation.m */; };
+		F42DE02E148BBCE6007E63C6 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F42DDFFC148BB863007E63C6 /* AFXMLRequestOperation.m */; };
+		F42DE02F148BBCE6007E63C6 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = F42DDFFE148BB863007E63C6 /* UIImageView+AFNetworking.m */; };
+		F42DE030148BBF11007E63C6 /* SwedbankLoginParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F44185041354267900A27A04 /* SwedbankLoginParser.m */; };
+		F42DE034148BD51A007E63C6 /* MSNetworkingClient.m in Sources */ = {isa = PBXBuildFile; fileRef = F42DE033148BD51A007E63C6 /* MSNetworkingClient.m */; };
 		F439AB87118D900D00AF52C0 /* LoginParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F439AB86118D900D00AF52C0 /* LoginParser.m */; };
 		F439AD79119C06B400AF52C0 /* AccountUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = F439AD78119C06B400AF52C0 /* AccountUpdater.m */; };
 		F44185021354258A00A27A04 /* SwedbankLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = F44185011354258A00A27A04 /* SwedbankLogin.m */; };
 		F44185051354267900A27A04 /* SwedbankLoginParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F44185041354267900A27A04 /* SwedbankLoginParser.m */; };
 		F441850713562E0E00A27A04 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F441850613562E0E00A27A04 /* Settings.bundle */; };
-		F4463148120EC04F00CD3A2B /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F4463147120EC04F00CD3A2B /* libz.1.2.3.dylib */; };
 		F446314A120EC05900CD3A2B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4463149120EC05900CD3A2B /* MobileCoreServices.framework */; };
 		F446314E120EC06200CD3A2B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F446314D120EC06200CD3A2B /* CFNetwork.framework */; };
 		F4463152120EC06800CD3A2B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4463151120EC06800CD3A2B /* SystemConfiguration.framework */; };
@@ -69,6 +97,7 @@
 		F4534C20121813C000BF6D4A /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4534C1A121813C000BF6D4A /* Icon-Small@2x.png */; };
 		F4534C21121813C000BF6D4A /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4534C1B121813C000BF6D4A /* Icon@2x.png */; };
 		F4534C22121813C000BF6D4A /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = F4534C1C121813C000BF6D4A /* iTunesArtwork.png */; };
+		F453B54A148BE4F500918234 /* MSNetworkingClient.m in Sources */ = {isa = PBXBuildFile; fileRef = F42DE033148BD51A007E63C6 /* MSNetworkingClient.m */; };
 		F4570F0F119ECFB10087DC1E /* SwedbankAccountParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F4570F0E119ECFB10087DC1E /* SwedbankAccountParser.m */; };
 		F45A466912ABE6F5009C214F /* AccountInfoTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F45A466812ABE6F5009C214F /* AccountInfoTableView.m */; };
 		F4603FC9143874C200873BB4 /* ConfiguredBank.m in Sources */ = {isa = PBXBuildFile; fileRef = F4603FC8143874C200873BB4 /* ConfiguredBank.m */; };
@@ -99,6 +128,9 @@
 		F4ACBDF8127C3C270054F024 /* DebugLogEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4ACBDF5127C3C270054F024 /* DebugLogEntryViewController.m */; };
 		F4ACBDF9127C3C270054F024 /* DebugTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4ACBDF7127C3C270054F024 /* DebugTableViewController.m */; };
 		F4ACBF63127D95F30054F024 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4ACBF62127D95F30054F024 /* MessageUI.framework */; };
+		F4B6F91E148FD567002A8AA4 /* SwedbankLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = F44185011354258A00A27A04 /* SwedbankLogin.m */; };
+		F4B6F920148FD96F002A8AA4 /* Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F83C57127C192C00B537CC /* Swizzle.m */; };
+		F4B6F925148FE333002A8AA4 /* SwedbankTestableLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B6F922148FD9E5002A8AA4 /* SwedbankTestableLogin.m */; };
 		F4CD8CA212589706003C316D /* eye_black.png in Resources */ = {isa = PBXBuildFile; fileRef = F4CD8CA112589706003C316D /* eye_black.png */; };
 		F4D08A3212D63E36005C2A3A /* LansforsakringarLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D08A3112D63E36005C2A3A /* LansforsakringarLogin.m */; };
 		F4D08A3512D63ED5005C2A3A /* LansforsakringarLoginParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D08A3412D63ED5005C2A3A /* LansforsakringarLoginParser.m */; };
@@ -171,6 +203,40 @@
 		F41DF628127F5B4100C57927 /* MittSaldo 2.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = "MittSaldo 2.xcdatamodel"; sourceTree = "<group>"; };
 		F41DF629127F5B4100C57927 /* MittSaldo.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = MittSaldo.xcdatamodel; sourceTree = "<group>"; };
 		F42B49E61359F6B2003CD7B9 /* bookmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bookmark.png; path = images/bookmark.png; sourceTree = "<group>"; };
+		F42DDFE9148BB863007E63C6 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPClient.h; path = Vendor/AFNetworking/AFNetworking/AFHTTPClient.h; sourceTree = SOURCE_ROOT; };
+		F42DDFEA148BB863007E63C6 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFHTTPClient.m; path = Vendor/AFNetworking/AFNetworking/AFHTTPClient.m; sourceTree = SOURCE_ROOT; };
+		F42DDFEB148BB863007E63C6 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperation.h; path = Vendor/AFNetworking/AFNetworking/AFHTTPRequestOperation.h; sourceTree = SOURCE_ROOT; };
+		F42DDFEC148BB863007E63C6 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFHTTPRequestOperation.m; path = Vendor/AFNetworking/AFNetworking/AFHTTPRequestOperation.m; sourceTree = SOURCE_ROOT; };
+		F42DDFED148BB863007E63C6 /* AFImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFImageCache.h; path = Vendor/AFNetworking/AFNetworking/AFImageCache.h; sourceTree = SOURCE_ROOT; };
+		F42DDFEE148BB863007E63C6 /* AFImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFImageCache.m; path = Vendor/AFNetworking/AFNetworking/AFImageCache.m; sourceTree = SOURCE_ROOT; };
+		F42DDFEF148BB863007E63C6 /* AFImageRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFImageRequestOperation.h; path = Vendor/AFNetworking/AFNetworking/AFImageRequestOperation.h; sourceTree = SOURCE_ROOT; };
+		F42DDFF0148BB863007E63C6 /* AFImageRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFImageRequestOperation.m; path = Vendor/AFNetworking/AFNetworking/AFImageRequestOperation.m; sourceTree = SOURCE_ROOT; };
+		F42DDFF1148BB863007E63C6 /* AFJSONRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFJSONRequestOperation.h; path = Vendor/AFNetworking/AFNetworking/AFJSONRequestOperation.h; sourceTree = SOURCE_ROOT; };
+		F42DDFF2148BB863007E63C6 /* AFJSONRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFJSONRequestOperation.m; path = Vendor/AFNetworking/AFNetworking/AFJSONRequestOperation.m; sourceTree = SOURCE_ROOT; };
+		F42DDFF3148BB863007E63C6 /* AFJSONUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFJSONUtilities.h; path = Vendor/AFNetworking/AFNetworking/AFJSONUtilities.h; sourceTree = SOURCE_ROOT; };
+		F42DDFF4148BB863007E63C6 /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFNetworkActivityIndicatorManager.h; path = Vendor/AFNetworking/AFNetworking/AFNetworkActivityIndicatorManager.h; sourceTree = SOURCE_ROOT; };
+		F42DDFF5148BB863007E63C6 /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFNetworkActivityIndicatorManager.m; path = Vendor/AFNetworking/AFNetworking/AFNetworkActivityIndicatorManager.m; sourceTree = SOURCE_ROOT; };
+		F42DDFF6148BB863007E63C6 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFNetworking.h; path = Vendor/AFNetworking/AFNetworking/AFNetworking.h; sourceTree = SOURCE_ROOT; };
+		F42DDFF7148BB863007E63C6 /* AFPropertyListRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFPropertyListRequestOperation.h; path = Vendor/AFNetworking/AFNetworking/AFPropertyListRequestOperation.h; sourceTree = SOURCE_ROOT; };
+		F42DDFF8148BB863007E63C6 /* AFPropertyListRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFPropertyListRequestOperation.m; path = Vendor/AFNetworking/AFNetworking/AFPropertyListRequestOperation.m; sourceTree = SOURCE_ROOT; };
+		F42DDFF9148BB863007E63C6 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFURLConnectionOperation.h; path = Vendor/AFNetworking/AFNetworking/AFURLConnectionOperation.h; sourceTree = SOURCE_ROOT; };
+		F42DDFFA148BB863007E63C6 /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFURLConnectionOperation.m; path = Vendor/AFNetworking/AFNetworking/AFURLConnectionOperation.m; sourceTree = SOURCE_ROOT; };
+		F42DDFFB148BB863007E63C6 /* AFXMLRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFXMLRequestOperation.h; path = Vendor/AFNetworking/AFNetworking/AFXMLRequestOperation.h; sourceTree = SOURCE_ROOT; };
+		F42DDFFC148BB863007E63C6 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFXMLRequestOperation.m; path = Vendor/AFNetworking/AFNetworking/AFXMLRequestOperation.m; sourceTree = SOURCE_ROOT; };
+		F42DDFFD148BB863007E63C6 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+AFNetworking.h"; path = "Vendor/AFNetworking/AFNetworking/UIImageView+AFNetworking.h"; sourceTree = SOURCE_ROOT; };
+		F42DDFFE148BB863007E63C6 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "Vendor/AFNetworking/AFNetworking/UIImageView+AFNetworking.m"; sourceTree = SOURCE_ROOT; };
+		F42DE00E148BB95A007E63C6 /* MittSaldoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MittSaldoTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F42DE00F148BB95A007E63C6 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		F42DE015148BB95B007E63C6 /* MittSaldoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MittSaldoTests-Info.plist"; sourceTree = "<group>"; };
+		F42DE017148BB95B007E63C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F42DE019148BB95B007E63C6 /* MittSaldoTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MittSaldoTests.h; sourceTree = "<group>"; };
+		F42DE01A148BB95B007E63C6 /* MittSaldoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MittSaldoTests.m; sourceTree = "<group>"; };
+		F42DE01C148BB95B007E63C6 /* MittSaldoTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MittSaldoTests-Prefix.pch"; sourceTree = "<group>"; };
+		F42DE021148BB9F6007E63C6 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		F42DE023148BBA4B007E63C6 /* SwedbankTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwedbankTests.h; sourceTree = "<group>"; };
+		F42DE024148BBA4B007E63C6 /* SwedbankTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwedbankTests.m; sourceTree = "<group>"; };
+		F42DE032148BD51A007E63C6 /* MSNetworkingClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSNetworkingClient.h; sourceTree = "<group>"; };
+		F42DE033148BD51A007E63C6 /* MSNetworkingClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSNetworkingClient.m; sourceTree = "<group>"; };
 		F439AB85118D900D00AF52C0 /* LoginParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginParser.h; sourceTree = "<group>"; };
 		F439AB86118D900D00AF52C0 /* LoginParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginParser.m; sourceTree = "<group>"; };
 		F439AD77119C06B400AF52C0 /* AccountUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountUpdater.h; sourceTree = "<group>"; };
@@ -180,7 +246,6 @@
 		F44185031354267900A27A04 /* SwedbankLoginParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwedbankLoginParser.h; sourceTree = "<group>"; };
 		F44185041354267900A27A04 /* SwedbankLoginParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwedbankLoginParser.m; sourceTree = "<group>"; };
 		F441850613562E0E00A27A04 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		F4463147120EC04F00CD3A2B /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = usr/lib/libz.1.2.3.dylib; sourceTree = SDKROOT; };
 		F4463149120EC05900CD3A2B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		F446314D120EC06200CD3A2B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		F4463151120EC06800CD3A2B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -274,6 +339,8 @@
 		F4ACBDF6127C3C270054F024 /* DebugTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugTableViewController.h; sourceTree = "<group>"; };
 		F4ACBDF7127C3C270054F024 /* DebugTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugTableViewController.m; sourceTree = "<group>"; };
 		F4ACBF62127D95F30054F024 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		F4B6F921148FD9E5002A8AA4 /* SwedbankTestableLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwedbankTestableLogin.h; sourceTree = "<group>"; };
+		F4B6F922148FD9E5002A8AA4 /* SwedbankTestableLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwedbankTestableLogin.m; sourceTree = "<group>"; };
 		F4CD8CA112589706003C316D /* eye_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = eye_black.png; path = images/eye_black.png; sourceTree = "<group>"; };
 		F4D08A3012D63E36005C2A3A /* LansforsakringarLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LansforsakringarLogin.h; sourceTree = "<group>"; };
 		F4D08A3112D63E36005C2A3A /* LansforsakringarLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LansforsakringarLogin.m; sourceTree = "<group>"; };
@@ -314,7 +381,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4463148120EC04F00CD3A2B /* libz.1.2.3.dylib in Frameworks */,
+				F42DE022148BB9F6007E63C6 /* libz.1.2.5.dylib in Frameworks */,
 				F446314A120EC05900CD3A2B /* MobileCoreServices.framework in Frameworks */,
 				F446314E120EC06200CD3A2B /* CFNetwork.framework in Frameworks */,
 				F4463152120EC06800CD3A2B /* SystemConfiguration.framework in Frameworks */,
@@ -327,12 +394,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F42DE00A148BB95A007E63C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F42DE010148BB95A007E63C6 /* SenTestingKit.framework in Frameworks */,
+				F42DE011148BB95A007E63C6 /* UIKit.framework in Frameworks */,
+				F42DE012148BB95A007E63C6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F42DE031148BD4F9007E63C6 /* Networking */,
+				F42DDFE7148BB7E5007E63C6 /* Vendor */,
 				6FFDD14B1201F14C00265D4B /* Controls */,
 				6F29A3A611F35E13003652F3 /* ASIHTTPRequest */,
 				6F29A38311F35D8B003652F3 /* External */,
@@ -352,6 +431,7 @@
 			isa = PBXGroup;
 			children = (
 				1D6058910D05DD3D006BFB54 /* MittSaldo.app */,
+				F42DE00E148BB95A007E63C6 /* MittSaldoTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -364,6 +444,7 @@
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				F4F4367E125A624F004783D2 /* Resources-iPad */,
+				F42DE013148BB95A007E63C6 /* MittSaldoTests */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -396,8 +477,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F42DE021148BB9F6007E63C6 /* libz.1.2.5.dylib */,
 				F47E72BA12620CE300D54C39 /* QuartzCore.framework */,
-				F4463147120EC04F00CD3A2B /* libz.1.2.3.dylib */,
 				F4463149120EC05900CD3A2B /* MobileCoreServices.framework */,
 				F446314D120EC06200CD3A2B /* CFNetwork.framework */,
 				F4463151120EC06800CD3A2B /* SystemConfiguration.framework */,
@@ -406,6 +487,7 @@
 				F446315D120EC07B00CD3A2B /* CoreGraphics.framework */,
 				F4463161120EC08000CD3A2B /* CoreData.framework */,
 				F4ACBF62127D95F30054F024 /* MessageUI.framework */,
+				F42DE00F148BB95A007E63C6 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -498,6 +580,68 @@
 				F4052EF113116C33005AAC54 /* SEBAccountParser.m */,
 			);
 			name = SEB;
+			sourceTree = "<group>";
+		};
+		F42DDFE7148BB7E5007E63C6 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				F42DDFE9148BB863007E63C6 /* AFHTTPClient.h */,
+				F42DDFEA148BB863007E63C6 /* AFHTTPClient.m */,
+				F42DDFEB148BB863007E63C6 /* AFHTTPRequestOperation.h */,
+				F42DDFEC148BB863007E63C6 /* AFHTTPRequestOperation.m */,
+				F42DDFED148BB863007E63C6 /* AFImageCache.h */,
+				F42DDFEE148BB863007E63C6 /* AFImageCache.m */,
+				F42DDFEF148BB863007E63C6 /* AFImageRequestOperation.h */,
+				F42DDFF0148BB863007E63C6 /* AFImageRequestOperation.m */,
+				F42DDFF1148BB863007E63C6 /* AFJSONRequestOperation.h */,
+				F42DDFF2148BB863007E63C6 /* AFJSONRequestOperation.m */,
+				F42DDFF3148BB863007E63C6 /* AFJSONUtilities.h */,
+				F42DDFF4148BB863007E63C6 /* AFNetworkActivityIndicatorManager.h */,
+				F42DDFF5148BB863007E63C6 /* AFNetworkActivityIndicatorManager.m */,
+				F42DDFF6148BB863007E63C6 /* AFNetworking.h */,
+				F42DDFF7148BB863007E63C6 /* AFPropertyListRequestOperation.h */,
+				F42DDFF8148BB863007E63C6 /* AFPropertyListRequestOperation.m */,
+				F42DDFF9148BB863007E63C6 /* AFURLConnectionOperation.h */,
+				F42DDFFA148BB863007E63C6 /* AFURLConnectionOperation.m */,
+				F42DDFFB148BB863007E63C6 /* AFXMLRequestOperation.h */,
+				F42DDFFC148BB863007E63C6 /* AFXMLRequestOperation.m */,
+				F42DDFFD148BB863007E63C6 /* UIImageView+AFNetworking.h */,
+				F42DDFFE148BB863007E63C6 /* UIImageView+AFNetworking.m */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
+		F42DE013148BB95A007E63C6 /* MittSaldoTests */ = {
+			isa = PBXGroup;
+			children = (
+				F42DE019148BB95B007E63C6 /* MittSaldoTests.h */,
+				F42DE01A148BB95B007E63C6 /* MittSaldoTests.m */,
+				F42DE014148BB95A007E63C6 /* Supporting Files */,
+				F42DE023148BBA4B007E63C6 /* SwedbankTests.h */,
+				F42DE024148BBA4B007E63C6 /* SwedbankTests.m */,
+				F4B6F921148FD9E5002A8AA4 /* SwedbankTestableLogin.h */,
+				F4B6F922148FD9E5002A8AA4 /* SwedbankTestableLogin.m */,
+			);
+			path = MittSaldoTests;
+			sourceTree = "<group>";
+		};
+		F42DE014148BB95A007E63C6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F42DE015148BB95B007E63C6 /* MittSaldoTests-Info.plist */,
+				F42DE016148BB95B007E63C6 /* InfoPlist.strings */,
+				F42DE01C148BB95B007E63C6 /* MittSaldoTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F42DE031148BD4F9007E63C6 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				F42DE032148BD51A007E63C6 /* MSNetworkingClient.h */,
+				F42DE033148BD51A007E63C6 /* MSNetworkingClient.m */,
+			);
+			name = Networking;
 			sourceTree = "<group>";
 		};
 		F439AB81118D8ED900AF52C0 /* XMLParsers */ = {
@@ -780,13 +924,31 @@
 			productReference = 1D6058910D05DD3D006BFB54 /* MittSaldo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F42DE00D148BB95A007E63C6 /* MittSaldoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F42DE01D148BB95B007E63C6 /* Build configuration list for PBXNativeTarget "MittSaldoTests" */;
+			buildPhases = (
+				F42DE009148BB95A007E63C6 /* Sources */,
+				F42DE00A148BB95A007E63C6 /* Frameworks */,
+				F42DE00B148BB95A007E63C6 /* Resources */,
+				F42DE00C148BB95A007E63C6 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MittSaldoTests;
+			productName = MittSaldoTests;
+			productReference = F42DE00E148BB95A007E63C6 /* MittSaldoTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0410;
+				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = "Björn Sållarp";
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "MittSaldo" */;
@@ -806,6 +968,7 @@
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* MittSaldo */,
+				F42DE00D148BB95A007E63C6 /* MittSaldoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -856,7 +1019,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F42DE00B148BB95A007E63C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F42DE018148BB95B007E63C6 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F42DE00C148BB95A007E63C6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1D60588E0D05DD3D006BFB54 /* Sources */ = {
@@ -927,12 +1114,55 @@
 				F461EB1B14371AE500D06E7C /* BankSettingsViewController.m in Sources */,
 				F4603FC9143874C200873BB4 /* ConfiguredBank.m in Sources */,
 				F4603FD0143889B700873BB4 /* NSString+helpers.m in Sources */,
+				F42DDFFF148BB863007E63C6 /* AFHTTPClient.m in Sources */,
+				F42DE000148BB863007E63C6 /* AFHTTPRequestOperation.m in Sources */,
+				F42DE001148BB863007E63C6 /* AFImageCache.m in Sources */,
+				F42DE002148BB863007E63C6 /* AFImageRequestOperation.m in Sources */,
+				F42DE003148BB863007E63C6 /* AFJSONRequestOperation.m in Sources */,
+				F42DE004148BB863007E63C6 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				F42DE005148BB863007E63C6 /* AFPropertyListRequestOperation.m in Sources */,
+				F42DE006148BB863007E63C6 /* AFURLConnectionOperation.m in Sources */,
+				F42DE007148BB863007E63C6 /* AFXMLRequestOperation.m in Sources */,
+				F42DE008148BB863007E63C6 /* UIImageView+AFNetworking.m in Sources */,
+				F453B54A148BE4F500918234 /* MSNetworkingClient.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F42DE009148BB95A007E63C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F42DE01B148BB95B007E63C6 /* MittSaldoTests.m in Sources */,
+				F42DE025148BBA4B007E63C6 /* SwedbankTests.m in Sources */,
+				F42DE026148BBCC7007E63C6 /* AFHTTPRequestOperation.m in Sources */,
+				F42DE027148BBCD7007E63C6 /* AFHTTPClient.m in Sources */,
+				F42DE028148BBCE6007E63C6 /* AFImageCache.m in Sources */,
+				F42DE029148BBCE6007E63C6 /* AFImageRequestOperation.m in Sources */,
+				F42DE02A148BBCE6007E63C6 /* AFJSONRequestOperation.m in Sources */,
+				F42DE02B148BBCE6007E63C6 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				F42DE02C148BBCE6007E63C6 /* AFPropertyListRequestOperation.m in Sources */,
+				F42DE02D148BBCE6007E63C6 /* AFURLConnectionOperation.m in Sources */,
+				F42DE02E148BBCE6007E63C6 /* AFXMLRequestOperation.m in Sources */,
+				F42DE02F148BBCE6007E63C6 /* UIImageView+AFNetworking.m in Sources */,
+				F42DE030148BBF11007E63C6 /* SwedbankLoginParser.m in Sources */,
+				F42DE034148BD51A007E63C6 /* MSNetworkingClient.m in Sources */,
+				F4B6F91E148FD567002A8AA4 /* SwedbankLogin.m in Sources */,
+				F4B6F920148FD96F002A8AA4 /* Swizzle.m in Sources */,
+				F4B6F925148FE333002A8AA4 /* SwedbankTestableLogin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		F42DE016148BB95B007E63C6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F42DE017148BB95B007E63C6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		F44634451216D06200CD3A2B /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -988,9 +1218,8 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_LDFLAGS = "";
-				PREBINDING = NO;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1006,10 +1235,9 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PREBINDING = NO;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1025,10 +1253,9 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PREBINDING = NO;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
@@ -1053,6 +1280,81 @@
 			};
 			name = Distribution;
 		};
+		F42DE01E148BB95B007E63C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MittSaldoTests/MittSaldoTests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				INFOPLIST_FILE = "MittSaldoTests/MittSaldoTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		F42DE01F148BB95B007E63C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MittSaldoTests/MittSaldoTests-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				INFOPLIST_FILE = "MittSaldoTests/MittSaldoTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+		F42DE020148BB95B007E63C6 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MittSaldoTests/MittSaldoTests-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				INFOPLIST_FILE = "MittSaldoTests/MittSaldoTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Distribution;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1072,6 +1374,16 @@
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
 				F411C12D12E9B7150095271E /* Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F42DE01D148BB95B007E63C6 /* Build configuration list for PBXNativeTarget "MittSaldoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F42DE01E148BB95B007E63C6 /* Debug */,
+				F42DE01F148BB95B007E63C6 /* Release */,
+				F42DE020148BB95B007E63C6 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
